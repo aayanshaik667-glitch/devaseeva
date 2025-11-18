@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PanditFinder — Users & Entrepreneurs</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- TOP NAV (YouTube-inspired) -->
+  <header class="top-nav">
+    <div class="left">
+      <button id="menuBtn" class="icon-btn">☰</button>
+      <div class="logo">PanditFinder</div>
+    </div>
+
+    <div class="search-area">
+      <input id="searchInput" placeholder="Search pandits, services..." />
+      <button id="searchBtn" class="icon-btn">🔍</button>
+    </div>
+
+    <div class="right">
+      <button id="createBtn" class="btn small">Create</button>
+      <button id="loginBtn" class="btn ghost">Login</button>
+      <button id="signupBtn" class="btn primary">Sign up</button>
+    </div>
+  </header>
+
+  <!-- LAYOUT -->
+  <div class="app">
+    <!-- SIDEBAR (YouTube-like) -->
+    <nav class="sidebar" id="sidebar">
+      <a class="nav-link active" data-view="home">Home</a>
+      <a class="nav-link" data-view="for-users">For Users</a>
+      <a class="nav-link" data-view="for-entrepreneurs">For Entrepreneurs</a>
+      <a class="nav-link" data-view="bookings">Bookings</a>
+      <a class="nav-link" data-view="profile">Profile</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="content" id="content">
+      <!-- Home feed -->
+      <section class="view" id="view-home">
+        <div class="hero card">
+          <h1>Find trusted pandits near you</h1>
+          <p>Quickly book pandits for pooja, rituals, and ceremonies. Register as a service provider to get more bookings.</p>
+        </div>
+
+        <div id="cardsContainer" class="cards-grid">
+          <!-- sample cards rendered by JS -->
+        </div>
+      </section>
+
+      <!-- For Users -->
+      <section class="view hidden" id="view-for-users">
+        <div class="card">
+          <h2>User Dashboard</h2>
+          <p>Search, filter and book pandit services. Your bookings & reviews appear here.</p>
+          <div id="userBookings"></div>
+        </div>
+      </section>
+
+      <!-- For Entrepreneurs -->
+      <section class="view hidden" id="view-for-entrepreneurs">
+        <div class="card">
+          <h2>Entrepreneur Dashboard</h2>
+          <p>Register your services, manage availability and view bookings.</p>
+
+          <form id="registerPanditForm" class="form">
+            <input id="p_name" placeholder="Name of Pandit / Service" required />
+            <input id="p_city" placeholder="City" required />
+            <input id="p_price" placeholder="Starting price (₹)" type="number" required />
+            <textarea id="p_about" placeholder="Short description"></textarea>
+            <div class="row">
+              <button type="submit" class="btn primary">Register Service</button>
+            </div>
+          </form>
+
+          <div id="myServices"></div>
+        </div>
+      </section>
+
+      <!-- Bookings -->
+      <section class="view hidden" id="view-bookings">
+        <div class="card">
+          <h2>Your Bookings</h2>
+          <div id="bookingsList"></div>
+        </div>
+      </section>
+
+      <!-- Profile -->
+      <section class="view hidden" id="view-profile">
+        <div class="card">
+          <h2>Profile</h2>
+          <div id="profileInfo"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODALS: Login / Signup / Booking -->
+  <div id="modalRoot"></div>
+
+  <!-- If you want Firebase, place firebase.example.config.js in the same folder and include it here -->
+  <script src="firebase.example.config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
